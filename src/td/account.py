@@ -986,7 +986,7 @@ class Account(BaseObject):
         api: Union[Type[APIData], APIData] = API.TelegramDesktop,
         password: str = None,
         owner: td.TDesktop = None,
-        kwargs: dict = None
+        **kwargs
     ):
 
         Expects(
