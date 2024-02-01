@@ -573,7 +573,7 @@ class TDesktop(BaseObject):
         flag: Type[LoginFlag] = CreateNewSession,
         api: Union[Type[APIData], APIData] = API.TelegramDesktop,
         password: str = None,
-        kwargs: dict = None
+        **kwargs
     ) -> TDesktop:
         """
         Create an instance of `TDesktop` from `TelegramClient`.
