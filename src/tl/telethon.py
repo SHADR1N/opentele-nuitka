@@ -703,6 +703,7 @@ class TelegramClient(telethon.TelegramClient, BaseObject):
         flag: Type[LoginFlag] = CreateNewSession,
         api: Union[Type[APIData], APIData] = API.TelegramDesktop,
         password: str = None,
+        **kwargs
     ) -> td.TDesktop:
         """
         Convert this instance of `TelegramClient` to `TDesktop`
@@ -739,7 +740,7 @@ class TelegramClient(telethon.TelegramClient, BaseObject):
         """
 
         return await td.TDesktop.FromTelethon(
-            self, flag=flag, api=api, password=password
+            self, flag=flag, api=api, password=password, **kwargs
         )
 
     @typing.overload
