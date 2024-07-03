@@ -555,7 +555,7 @@ class TelegramClient(telethon.TelegramClient, BaseObject):
         **kwargs,
     ) -> TelegramClient:
 
-        newClient = TelegramClient(session, api=api, password=password, **kwargs)
+        newClient = TelegramClient(session, api=api, **kwargs)
 
         try:
             await newClient.connect()
