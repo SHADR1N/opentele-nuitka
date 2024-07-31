@@ -557,13 +557,10 @@ class TelegramClient(telethon.TelegramClient, BaseObject):
 
         newClient = TelegramClient(session, api=api, **kwargs)
 
-        try:
-            await newClient.connect()
-            # switch DC for now because i can't handle LoginTokenMigrateTo...
-            if newClient.session.dc_id != self.session.dc_id:
-                await newClient._switch_dc(self.session.dc_id)
-        except OSError as e:
-            raise BaseException("Cannot connect")
+        await newClient.connect()
+        # switch DC for now because i can't handle LoginTokenMigrateTo...
+        if newClient.session.dc_id != self.session.dc_id:
+            await newClient._switch_dc(self.session.dc_id)
 
         if await newClient.is_user_authorized():  # nocov
 
