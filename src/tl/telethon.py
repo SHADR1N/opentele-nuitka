@@ -596,8 +596,8 @@ class TelegramClient(telethon.TelegramClient, BaseObject):
 
                 return newClient
 
-        if not self._self_id:
-            oldMe = await self.get_me()
+        # if not self._self_id:
+            # oldMe = await self.get_me()
 
         timeout_err = None
 
